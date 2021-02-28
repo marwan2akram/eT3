@@ -1,0 +1,153 @@
+{% load i18n %}
+<!doctype html>
+<html lang="en" dir="ltr">
+   <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta name="theme-color" content="#EBB50D">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/3.0.0/pretty-checkbox.min.css">
+       <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="../../static/assets/css/dropify.min.css">
+       <link rel="stylesheet" href="../../static/assets/css/style.css?v=1">
+       <title>leaverequest</title>
+   </head>
+   <body>
+       <div class="main-container">
+
+            <!-- start page-content -->
+            <div class="page-content">
+
+                <!--start main-content-->
+                <div class="main-content">
+
+                    <!--start header-content-->
+                    <header class="header-content">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-2 col-6 lg-order1">
+                                    <div class="header-logo">
+                                        <div class="main-logo">
+                                            <a href="{% url 'leaverequests:index' %}">
+                                                <img src="../../static/assets/img/home1.png" class="img-fluid" alt="logo" width="60">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-6 lg-order2">
+
+
+                                    <div class="main-overlay"></div>
+
+                                    {% if request.user.is_authenticated  %}
+                                    <!-- authorized user -->
+                                    <div class="menu-header">
+                                        <div class="user-box">
+                                            <div class="user-img">
+                                              {% if request.user.profile.photo %}
+                                                <img src="{{request.user.profile.photo.url}}">
+                                              {% endif %}
+                                            </div>
+                                            <p class="user-name regular-parag parag" > {{ request.user.profile }} </p>
+                                        </div>
+                                      <div class="btn-header">
+                                        <p class="login-btn main-btn regular-parag parag" >
+                                                <a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+                                            </p>
+                                      </div>
+                                    </div>
+                                  {% else %}
+                           <!--                  unauthorized user-->
+                                    <div class="btn-header">
+                                        <h4 class="wrap-name">
+                                          <a href="{% url 'account_login' %}">
+                                            <p class="login-btn main-btn regular-parag parag" > Log In </p>
+                                          </a>
+                                        </h4>
+                                      <div >
+                                        <a href="{% url 'account_signup' %}">
+                                          <button class="wrap-btn main-btn sign-btn regular-parag parag" type="button">{% trans "Sign Up" %}</button>
+                                        </a>
+                                      </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <!--end header-content-->
+
+                    <!--start view-content-->
+                  {% if request.user.is_authenticated  %}
+                  {% block content %}
+                  {% endblock %}
+                  {% block content2 %}
+                  {% endblock %}
+                  {% endif %}
+                    <!--end view-content-->
+
+                </div>
+                <!--end main-content-->
+
+            </div>
+            <!-- end page-content -->
+
+            <!--start footer-content-->
+            <footer class="footer-content">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="footer-list">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#"> FAQ </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Help </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Privacy policy </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> about us </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Terms of service </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="footer-social">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#"> <i class="fab fa-facebook-f"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fab fa-instagram"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fab fa-twitter"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fab fa-youtube"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </footer>
+            <!--end footer-content-->
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
+        <script src="../../static/assets/js/dropify.min.js"></script>
+        <script src="../../static/assets/js/jquery-slider-min.js"></script>
+        <script src="../../static/assets/js/script.js?v=1"></script>
+    </body>
+</html>

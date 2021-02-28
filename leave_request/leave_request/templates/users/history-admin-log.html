@@ -1,0 +1,341 @@
+{% extends "users/base2.html" %}
+
+{% block content %}
+                    <!--start view-content-->
+                    <div class="view-content">
+
+                        <!-- start services-details-content -->
+                        <div class="services-details-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="breadcrumbs-list">
+                                            <ul>
+                                                <li><a href="#"> leaverequests </a></li>
+                                                <li><a href="#"> history-admin-log </a></li>
+                                            </ul>
+                                        </div>
+
+                                        <h3 class="heading main-heading extrabold-heading"> ALL THE LEAVE REQUESTS </h3>
+
+                                        <div class="list-group tap-form tap-services " id="myList" role="tablist">
+                                            <a class="list-group-item list-group-item-action" data-toggle="list" href="#tap-services1" role="tab" aria-selected="false">
+                                                <p class="tap-name parag"> Approved </p>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action" data-toggle="list" href="#tap-services2" role="tab" aria-selected="true">
+                                                <p class="tap-name parag"> Rejected </p>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action" data-toggle="list" href="#tap-services3" role="tab" aria-selected="true">
+                                                <p class="tap-name parag"> Pending </p>
+                                            </a>
+                                        </div>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane form-fade" id="tap-services1" role="tabpanel">
+                                                <div class="service-content">
+                                                    <div class="row">
+                                                      {% for approved_request in approved_requests %}
+                                                        <div class="col-lg-9">
+                                                            <div class="service-account">
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> POSTED AT </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag">
+                                                                                  {{ approved_request.created_at }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> APPROVED AT </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ approved_request.updated_at }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> DATE </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ approved_request.date }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> REASON </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ approved_request.reason }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> EMPLOYER NAME </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ approved_request.employee }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> EMPLOYER DEPARTED </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ approved_request.employee.department }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> NOTE </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ approved_request.note }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                      {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane form-fade" id="tap-services2" role="tabpanel">
+                                                <div class="service-content">
+                                                    <div class="row">
+                                                      {% for rejected_request in rejected_requests%}
+                                                        <div class="col-md-9">
+                                                            <div class="service-account">
+                                                                <div class="box">
+                                                                  <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> POSTED AT </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ rejected_request.created_at }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> REJECTED AT </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ rejected_request.updated_at }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> DATE </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ rejected_request.date }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <p class="box-title parag regular-parag"> REASON </p>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag">{{ rejected_request.reason }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <p class="box-title parag regular-parag">  </p>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag">  </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                              <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> EMPLOYER NAME </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ rejected_request.employee }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> EMPLOYER DEPARTED </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ rejected_request.employee.department }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <p class="box-title parag regular-parag"> NOTE </p>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag">  {{ rejected_request.note }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                      {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane form-fade" id="tap-services3" role="tabpanel">
+                                                <div class="service-content">
+                                                    <div class="row">
+                                                      {% for pending_request in pending_requests %}
+                                                        <div class="col-md-9">
+                                                            <div class="service-account">
+                                                                <div class="box">
+                                                                  <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> POSTED AT </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag">
+                                                                                  {{ pending_request.created_at }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> DATE </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ pending_request.date }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <p class="box-title parag regular-parag"> REASON </p>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ pending_request.reason }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                              <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> EMPLOYER NAME </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ pending_request.employee }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <p class="box-title parag regular-parag"> EMPLOYER DEPARTED </p>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ pending_request.employee.department }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <p class="box-title parag regular-parag"> NOTE </p>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="box-info">
+                                                                                <p class="box-name parag regular-parag"> {{ pending_request.note }} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                              <div class="box">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <p class="box-title parag regular-parag">
+                                                                              <a href="{% url 'leaverequests:approve-request' pending_request.id %}" class="wrap-btn custom-btn parag main-btn col-md-3"> APPROVE </a>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="box-info" >
+                                                                                <p class="box-name parag regular-parag" >
+                                                                                  <a href="{% url 'leaverequests:reject-request' pending_request.id %}" class="wrap-btn custom-btn parag main-btn  "> REJECT </a>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                      {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- start services-details-content -->
+
+                    </div>
+                    <!--end view-content-->
+{% endblock %}

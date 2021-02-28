@@ -1,0 +1,92 @@
+{% extends "users/base2.html" %}
+
+{% block content %}
+
+                    <!--start view-content-->
+                    <div class="view-content">
+
+                        <!-- start add-profile-content -->
+                        <div class="add-services-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <h3 class="heading main-heading extrabold-heading"> CREATE LEAVE REQUEST </h3>
+
+                                        <div class="add-services-form">
+                                              {% for message in error_messages %}
+                                                  <h1>{{ message }}</h1>
+                                              {% endfor %}
+                                            <form id="post-form" action="{% url 'leaverequests:create-request' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                      <div class="add-group">
+                                                        <label class="parag sec-label"> Employee ID </label>
+                                                        <input type="text" id="employee_id" name="employee_id" class="custom-input" placeholder="{{ user.profile.id }}" disabled>
+                                                      </div>
+                                                      <div class="add-group">
+                                                        <label class="parag sec-label"> Employee Name </label>
+                                                        <input type="text" id="employee_name" name="employee_name" class="custom-input" placeholder="{{ user }}" disabled>
+                                                      </div>
+                                                      <div class="add-group">
+                                                        <label class="parag sec-label"> Employee department </label>
+                                                        <input type="text" id="employee_department" name="employee_department" class="custom-input" placeholder="{{ user.profile.department }}" disabled>
+                                                      </div>
+                                                      <div class="add-group">
+                                                        <label class="parag sec-label"> Remaining Employee Leave Balance </label>
+                                                        <input type="text" id="employee_leave_balance" name="employee_leave_balance" class="custom-input" placeholder="{{ user.profile.leave_balances }}" disabled>
+                                                      </div>
+                                                    </div>
+                                                        <div class="col-lg-6">
+							                                            <div class="add-box sec-add-box">
+                                                            <div class="mini-add-box">
+                                                                <p class="box-h parag details-icon"> Request Details </p>
+                                                              <div class="add-group">
+                                                                    <label class="parag sec-label"> Dete </label>
+                                                                    <input type="date" id="date" name="date" class="custom-input" required>
+                                                                    <p class="parag input-hint"> only accept Today & Future dates </p>
+                                                                </div>
+                                                               <div class="add-group">
+                                                                    <label class="parag sec-label"> Note </label>
+                                                                    <textarea id="note" name="note" class="custom-input custom-textarea"></textarea>
+                                                                </div>
+                                                              <div class="add-group">
+                                                                    <label class="parag sec-label"> Reason </label>
+                                                                    <div class="custom-select-box">
+                                                                        <select id="reason" name="reason" class="default-select">
+                                                                            <option value="Sick"> Sick </option>
+                                                                            <option value="Family Reasons"> Family Reasons </option>
+                                                                            <option value="Personal Leave"> Personal Leave </option>
+                                                                            <option value="Leave without pay"> Leave without pay </option>
+                                                                            <option value="Other"> Other </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                              <div class="add-group">
+                                                                    <label class="parag sec-label"> </label>
+                                                                    <div class="sec-checkbox">
+                                                                        <div class="pretty p-default p-round p-thick">
+                                                                            <input type="checkbox" id="term" name="term" required/>
+                                                                            <div class="state p-primary-o">
+                                                                                <label class="parag">I understand that this request is subject to approval by my employee.</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="main-btn wrap-btn parag large-btn" type="submit"> CREATE PROFILE </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- start add-services-content -->
+
+                    </div>
+                    <!--end view-content-->
+{% endblock %}

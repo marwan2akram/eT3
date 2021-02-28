@@ -1,0 +1,107 @@
+{% extends "users/base2.html" %}
+
+
+{% block content %}
+{% if not request.user.profile %}
+<!--start view-content-->
+<div class="view-content">
+                        <!-- start intro-content -->
+                        <div class="intro-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="intro-header heading"> Actions </h3>
+                                        <div class="subscription-section">
+
+                                            <div class="subscription-grid">
+                                                <div class="main-box">
+                                                    <div class="subscription-box">
+                                                        <div class="txt-box">
+                                                            <p class=" parag semibold-parag sub-heading"> you must create your profile first to access the other services </p>
+                                                            <h4 class="wrap-name">
+                                                                <a href="{% url 'leaverequests:create-profile' %}" class="wrap-btn custom-btn parag main-btn"> Create your profile </a>
+                                                              <p class=" parag semibold-parag sub-heading"> appears  only if  you don't have profile</p>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- start intro-content -->
+
+                    </div>
+<!--end view-content-->
+{% endif %}
+{% endblock %}
+
+
+
+{% block content2 %}
+{% if request.user.profile %}
+<!--start view-content-->
+<div class="view-content">
+                        <!-- start intro-content -->
+                        <div class="intro-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="intro-header heading"> Actions </h3>
+                                        <div class="subscription-section">
+                                          {% if request.user.profile.manager %}
+                                            <div class="subscription-grid">
+                                                <div class="main-box">
+                                                    <div class="subscription-box">
+                                                        <div class="txt-box">
+                                                            <p class=" parag semibold-parag sub-heading"> you can approve or reject pending requests and also review past requests from here </p>
+                                                            <h4 class="wrap-name">
+                                                                <a href="{% url 'leaverequests:history-admin-log' %}" class="wrap-btn custom-btn parag main-btn"> Review Requests </a>
+                                                              <p class="box-name parag regular-parag" > only mangers can access this </p>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          {% else %}
+                                            <div class="subscription-grid">
+                                                <div class="main-box">
+                                                    <div class="subscription-box">
+                                                        <div class="txt-box">
+                                                            <p class=" parag semibold-parag sub-heading"> you can create your leave request from here. </p>
+                                                            <h4 class="wrap-name">
+                                                                <a href="{% url 'leaverequests:create-request' %}" class="wrap-btn custom-btn parag main-btn"> Create a Leave Request </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="subscription-grid">
+                                                <div class="main-box">
+                                                    <div class="subscription-box">
+                                                        <div class="txt-box">
+                                                            <p class=" parag semibold-parag sub-heading"> you can see all your past leave requests and also pending requests from here </p>
+                                                            <h4 class="wrap-name">
+                                                                <a href="{% url 'leaverequests:history-log' %}" class="wrap-btn custom-btn parag main-btn"> History Logs </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          {% endif %}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- start intro-content -->
+
+                    </div>
+<!--end view-content-->
+{% endif %}
+{% endblock %}
+

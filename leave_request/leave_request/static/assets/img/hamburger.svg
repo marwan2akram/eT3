@@ -1,0 +1,14 @@
+<svg id="hamburger" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+  <g id="Group_3886" data-name="Group 3886" transform="translate(0 0)">
+    <path id="Path_111" data-name="Path 111" d="M13.5,27A13.5,13.5,0,1,1,27,13.5,13.515,13.515,0,0,1,13.5,27Zm0-25.875A12.375,12.375,0,1,0,25.875,13.5,12.39,12.39,0,0,0,13.5,1.125Z" transform="translate(0 0)" fill="#39363d"/>
+  </g>
+  <g id="Group_3887" data-name="Group 3887" transform="translate(7.875 7.875)">
+    <path id="Path_112" data-name="Path 112" d="M17.687,8.125H7.563A.563.563,0,0,1,7.563,7H17.687a.563.563,0,1,1,0,1.125Z" transform="translate(-7 -7)" fill="#0dbafc"/>
+  </g>
+  <g id="Group_3888" data-name="Group 3888" transform="translate(7.875 12.937)">
+    <path id="Path_113" data-name="Path 113" d="M17.687,12.625H7.563a.562.562,0,0,1,0-1.125H17.687a.562.562,0,1,1,0,1.125Z" transform="translate(-7 -11.5)" fill="#0dbafc"/>
+  </g>
+  <g id="Group_3889" data-name="Group 3889" transform="translate(7.875 18)">
+    <path id="Path_114" data-name="Path 114" d="M17.687,17.125H7.563a.563.563,0,0,1,0-1.125H17.687a.563.563,0,1,1,0,1.125Z" transform="translate(-7 -16)" fill="#0dbafc"/>
+  </g>
+</svg>
