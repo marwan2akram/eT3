@@ -32,25 +32,25 @@ To run the tests, run
 
 	* python manage.py test leaverequests
 
-#URL home page 
+# URL home page 
 * /leaverequests/
 
-#URL signup page 
+# URL signup page 
 * /accounts/signup/
 
-#url login 
+# url login 
 * /accounts/login/
 
-#url create profile
+# url create profile
 * /leaverequests/create-profile
 
-#url create leave request
+# url create leave request
 * /leaverequests/create-request
 
-#url view my leave requests 
+# url view my leave requests 
 * /leaverequests/history-log
 
-#url manager can view all the leave requests
+# url manager can view all the leave requests
 * /leaverequests/create-profile
 
 # url manager can accept the leave request
